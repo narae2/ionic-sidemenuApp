@@ -29,4 +29,14 @@ export class RestProvider {
       return Observable.empty<Product[]>();
     });
   }
+
+  //protuct 등록
+
+  public createProduct(product:Product): Observable<Product>{
+    return this.http.post(this.baseUrl + "/products", product).map(response => {
+        return new Product(response)
+      }).catch((err)=>{
+        return Observable.empty<Product>();
+      })
+  }
 }
