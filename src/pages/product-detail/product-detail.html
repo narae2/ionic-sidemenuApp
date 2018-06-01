@@ -18,6 +18,10 @@
     <ion-label>Id : {{product.id}}</ion-label>
   </ion-item>
   <ion-item>
+    <ion-label>name : </ion-label>
+    <ion-input type="text" [(ngModel)]="product.name"></ion-input>
+  </ion-item>
+  <ion-item>
     <ion-label>Cost : </ion-label>
     <ion-input type="text" [(ngModel)]="product.cost"></ion-input>
   </ion-item>
@@ -28,4 +32,7 @@
   <br/>
   <button ion-button color="primary" icon-right (click)="saveProduct(product)">
     Save<ion-icon name="md-checkmark" item-end=""></ion-icon></button>
+  <button ion-button *ngIf="product.id"  full color="danger" icon-right (click)="deleteProductById(product.id)">
+    Delete <ion-icon name="trash" item-end></ion-icon>
+  </button>
 </ion-content>
